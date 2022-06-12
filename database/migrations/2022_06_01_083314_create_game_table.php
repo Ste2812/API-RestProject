@@ -16,6 +16,12 @@ return new class extends Migration
         Schema::create('game', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('dice_one');
+            $table->integer('dice_two');
+            $table->integer('result');
+            $table->string('success_result');
+            $table->double('average_ranking');
+            $table->foreignId('user_id')->references('id')->on('users');
         });
     }
 
